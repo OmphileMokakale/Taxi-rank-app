@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taxi App</title>
+</head>
+<body>
+    <div class="col" x-data="{ count: 1 }">
+        <h3>Add Number of Passengers</h3>
+       Number of Passengers: <p x-text="count"></p>
+        <button @click="count++"> + </button>
+        <button @click="count--"> - </button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
+</body>
+</html>
