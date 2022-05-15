@@ -4,15 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taxi App</title>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title>Taxi Rank App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
 </head>
 <body>
-    <div class="col" x-data="{ count: 1 }">
-        <h3>Add Number of Passengers</h3>
-       Number of Passengers: <p x-text="count"></p>
-        <button @click="count++"> + </button>
-        <button @click="count--"> - </button>
-    </div>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
+    <section>
+        <h1>Taxi Rank App</h1>
+        <div class="tbl-header" x-data="rank">
+          <table >
+            <thead>
+              <tr>
+                <th>Departure</th>
+                <th>Destination</th>
+                <th>Passenger Actions</th>
+                <th>Taxi Trips</th>
+                <th>Taxi Fare</th>
+                <th>Total Fare</th>
+                <th>Available Taxis</th>
+                <th>Taxi Actions</th>
+              </tr>
+            </thead>
+
+            <template x-for="rank in ranks">
+                <tr>
+                    <td x-text="mainRank"></td>
+                    <td x-text="rank.destination"></td>
+                    <td>
+                        <button @click="rank.taxiLimit()">+</button>
+                        <span x-text="rank.queue"></span>
+                        <button @click="rank.leaveQueue()">-</button>
+                    </td>
+                    <td x-text="rank.trips"></td>
+                    <td x-text="'R' + rank.taxifare"></td>
+                    <td x-text="'R' + rank.totalFare()"></td>
+                    <td x-text="rank.taxis"></td>
+                    <td>
+                        <button @click="rank.leave()">Leave</button>
+                    </td>
+                </tr>
+            </template>
+          </table>
+        </div>
+       
+        </div>
+      </section>
+      
+      
+      <div class="made-with-love">
+        Made with
+        <i>♥</i> by
+        <p>Omphile</p>
+      </div>
 </body>
 </html>
