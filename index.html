@@ -12,36 +12,14 @@
 <body>
     <section>
         <h1>Taxi Rank App</h1>
-        <div class="tbl-header" x-data="rank">
-
-            <div class ="AddDestination" x-data="{ open: false }">
-                <button x-on:click="open = ! open ">Add Destination</button>
-             
-                <div x-show="open" x-transition>
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Destination</label>
-                        <input type="text" id="name" name="destination" class="form-control" minlength="1" placeholder="Destination" />
-                    </div>
-                    <div class="mb-3">
-                        <label for="description" class="form-label">Taxifare</label>
-                        <input type="number" id="taxifare" name="taxifare" min="10" max="50">
-                    </div>
-            
-                    <div class="mb-3">
-                
-                        <button @click="rank.AddDestination()"> Add </button> 
-                   
-                    </div>
-                </div>
-            </div>
-            
-          <table >
+        <div class="tbl-header" x-data="rank">            
+          <table>
             <thead>
               <tr>
                 <th>Departure</th>
                 <th>Destination</th>
                 <th>Passenger Actions</th>
-                <th>Taxi Trips</th>
+                <th>Trips</th>
                 <th>Taxi Fare</th>
                 <th>Total Fare</th>
                 <th>Available Taxis</th>
@@ -55,9 +33,9 @@
                     <td x-text="mainRank"></td>   <!--  displays main rank on the table using x-text (Under Depature th) -->
                     <td x-text="rank.destination"></td> <!--  displays depature on the table using x-text (Under Destination th) -->
                     <td> <!--  Passenger action starts) -->
-                        <button @click="rank.addToQueue()">+</button> 
+                        <button class="Mdesign S" @click="rank.addToQueue()">+</button> 
                         <span x-text="rank.queue"></span> 
-                        <button @click="rank.leaveQueue()">-</button>
+                        <button class="Mdesign S" @click="rank.leaveQueue()">-</button>
                     </td><!--  Passenger action ends) -->
                     <td x-text="rank.trips"></td>
                     <td x-text="'R' + rank.taxifare"></td>
@@ -65,12 +43,37 @@
                     <td x-text="rank.taxis"></td>
                     <td x-text="'R' + rank.total"></td>
                     <td>
-                        <button @click="rank.leave()">Leave</button>
+                        <button class="Mdesign AW" @click="rank.leave()">Leave</button>
                     </td>
-
-
                 </tr>
             </template>
+            <template x-for="(field, index) in fields" :key="index">
+                <tr>
+                    <td x-text="mainRank"></td>
+                    <td x-text="field.destination"></td>
+                    <!-- <td><input x-model="field.txt1" type="text" name="txt1[]" class="form-control"></td> -->
+                 <td> <!--  Passenger action starts) -->
+                    <button class="Mdesign S" @click="rank.addToQueue()">+</button> 
+                    <span x-text="queue"></span> 
+                    <button class="Mdesign S" @click="rank.leaveQueue()">-</button>
+                </td><!--  Passenger action ends) -->
+                 <!-- <td><input x-model="field.txt2" type="text" name="txt2[]" class="form-control"></td> -->
+                 <td x-text="trips"></td>
+                 <td x-text="'R' + taxifare"></td>
+                 <td x-text="'R' + totalFare()"></td>
+                 <td x-text="taxis"></td>
+                    <td x-text="'R' + total"></td>
+                    <td>
+                        <button class="Mdesign AW" @click="leave()">Leave</button>
+                    </td>
+                  <td><button type="button" class="Mdesign Y" @click="removeField(index)">&times;</button></td>
+               </tr>
+              </template>
+            <tfoot>
+                <tr>
+                  <td colspan="4" class="text-right"><button type="button" class="Mdesign W" @click="addNewField()">+ Add Destination</button></td>
+               </tr>
+             </tfoot>
           </table>
         </div>
        
