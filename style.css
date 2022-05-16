@@ -75,6 +75,13 @@ h1{
   .made-with-love a:hover {
     text-decoration: underline;
   }
+  .AddDestination{
+padding-bottom: 2em;
+padding-top: 2em;
+font-size: 13.5px;
+font-family: arial;
+color: #fff;
+  }
   
   
   
