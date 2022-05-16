@@ -16,15 +16,16 @@ document.addEventListener('alpine:init', () =>{
                     destination: 'Midrand',
                     limit: 10,
                     queue: 0,
+                    total: 0,
                     taxifare: 25,
                     trips: 0,
                     taxis: 5,
                     totalFare() {
                         return Number(this.queue) * Number(this.taxifare)
                     },
-                    grandTotal(){
-                        return Number(this.queue) * Number(this.taxifare)
-                    },
+                    // grandTotal(){
+                    //     return Number(this.queue) * Number(this.taxifare)
+                    // },
                     addToQueue() {
                         this.queue++
                         if (this.queue >= this.limit) {
@@ -46,8 +47,7 @@ document.addEventListener('alpine:init', () =>{
                             this.trips++
                             this.taxis--
                             this.queue -= this.limit
-                            // this.totalFare()
-                            // console.log(this.totalFare())
+                            this.total = (this.limit * this.taxifare) * this.trips
                             
                         }
 
@@ -57,15 +57,16 @@ document.addEventListener('alpine:init', () =>{
                     destination: 'Sandton',
                     limit: 10,
                     queue: 0,
+                    total: 0,
                     taxifare: 20,
                     trips: 0,
                     taxis: 5,
                     totalFare() {
                         return Number(this.queue) * Number(this.taxifare)
                     },
-                    grandTotal(){
-                        return Number(this.queue) * Number(this.taxifare)
-                    },
+                    // grandTotal(){
+                    //     return Number(this.queue) * Number(this.taxifare)
+                    // },
                     addToQueue() {
                         this.queue++
                         if (this.queue >= this.limit) {
@@ -87,6 +88,7 @@ document.addEventListener('alpine:init', () =>{
                             this.trips++
                             this.taxis--
                             this.queue -= this.limit
+                            this.total = (this.limit * this.taxifare) * this.trips
                         }
 
                     }
@@ -95,15 +97,16 @@ document.addEventListener('alpine:init', () =>{
                     destination: 'Rosebank',
                     limit: 10,
                     queue: 0,
+                    total: 0,
                     taxifare: 18,
                     trips: 0,
                     taxis: 5,
                     totalFare() {
                         return Number(this.queue) * Number(this.taxifare)
                     },
-                    grandTotal(){
-                        return Number(this.queue) * Number(this.taxifare)
-                    },
+                    // grandTotal(){
+                    //     return Number(this.queue) * Number(this.taxifare)
+                    // },
                     addToQueue() {
                         this.queue++
                         if (this.queue >= this.limit) {
@@ -125,6 +128,7 @@ document.addEventListener('alpine:init', () =>{
                             this.trips++
                             this.taxis--
                             this.queue -= this.limit
+                            this.total = (this.limit * this.taxifare) * this.trips
                         }
 
                     }
@@ -133,15 +137,16 @@ document.addEventListener('alpine:init', () =>{
                     destination: 'Pretoria',
                     limit: 10,
                     queue: 0,
+                    total: 0,
                     taxifare: 45,
                     trips: 0,
                     taxis: 5,
                     totalFare() {
                         return Number(this.queue) * Number(this.taxifare)
                     },
-                    grandTotal(){
-                        return Number(this.queue) * Number(this.taxifare)
-                    },
+                    // grandTotal(){
+                    //     return Number(this.queue) * Number(this.taxifare)
+                    // },
                     addToQueue() {
                         this.queue++
                         if (this.queue >= this.limit) {
@@ -165,6 +170,7 @@ document.addEventListener('alpine:init', () =>{
                             this.trips++
                             this.taxis--
                             this.queue -= this.limit
+                            this.total = (this.limit * this.taxifare) * this.trips
                         }
 
                     }
@@ -173,15 +179,16 @@ document.addEventListener('alpine:init', () =>{
                     destination: 'Midrand',
                     limit: 10,
                     queue: 0,
+                    total: 0,
                     taxifare: 25,
                     trips: 0,
                     taxis: 5,
                     totalFare() {
                         return Number(this.queue) * Number(this.taxifare)
                     },
-                    grandTotal(){
-                        return Number(this.queue) * Number(this.taxifare)
-                    },
+                    // grandTotal(){
+                    //     return Number(this.queue) * Number(this.taxifare)
+                    // },
                     addToQueue() {
                         this.queue++
                         if (this.queue >= this.limit) {
@@ -203,8 +210,7 @@ document.addEventListener('alpine:init', () =>{
                             this.trips++
                             this.taxis--
                             this.queue -= this.limit
-                            // this.totalFare()
-                            // console.log(this.totalFare())
+                            this.total = (this.limit * this.taxifare) * this.trips
                             
                         }
 
@@ -214,15 +220,16 @@ document.addEventListener('alpine:init', () =>{
                     destination: 'Soweto',
                     limit: 10,
                     queue: 0,
+                    total: 0,
                     taxifare: 20,
                     trips: 0,
                     taxis: 5,
                     totalFare() {
                         return Number(this.queue) * Number(this.taxifare)
                     },
-                    grandTotal(){
-                        return Number(this.queue) * Number(this.taxifare)
-                    },
+                    // grandTotal(){
+                    //     return Number(this.queue) * Number(this.taxifare)
+                    // },
                     addToQueue() {
                         this.queue++
                         if (this.queue >= this.limit) {
@@ -244,6 +251,7 @@ document.addEventListener('alpine:init', () =>{
                             this.trips++
                             this.taxis--
                             this.queue -= this.limit
+                            this.total = (this.limit * this.taxifare) * this.trips
                         }
 
                     }
@@ -252,15 +260,16 @@ document.addEventListener('alpine:init', () =>{
                     destination: 'Midrand',
                     limit: 10,
                     queue: 0,
+                    total: 0,
                     taxifare: 25,
                     trips: 0,
                     taxis: 5,
                     totalFare() {
                         return Number(this.queue) * Number(this.taxifare)
                     },
-                    grandTotal(){
-                        return Number(this.queue) * Number(this.taxifare)
-                    },
+                    // grandTotal(){
+                    //     return Number(this.queue) * Number(this.taxifare)
+                    // },
                     addToQueue() {
                         this.queue++
                         if (this.queue >= this.limit) {
@@ -282,8 +291,7 @@ document.addEventListener('alpine:init', () =>{
                             this.trips++
                             this.taxis--
                             this.queue -= this.limit
-                            // this.totalFare()
-                            // console.log(this.totalFare())
+                            this.total = (this.limit * this.taxifare) * this.trips
                             
                         }
 
@@ -293,15 +301,16 @@ document.addEventListener('alpine:init', () =>{
                     destination: 'EastRand',
                     limit: 10,
                     queue: 0,
+                    total: 0,
                     taxifare: 27,
                     trips: 0,
                     taxis: 5,
                     totalFare() {
                         return Number(this.queue) * Number(this.taxifare)
                     },
-                    grandTotal(){
-                        return Number(this.queue) * Number(this.taxifare)
-                    },
+                    // grandTotal(){
+                    //     return Number(this.queue) * Number(this.taxifare)
+                    // },
                     addToQueue() {
                         this.queue++
                         if (this.queue >= this.limit) {
@@ -323,6 +332,7 @@ document.addEventListener('alpine:init', () =>{
                             this.trips++
                             this.taxis--
                             this.queue -= this.limit
+                            this.total = (this.limit * this.taxifare) * this.trips
                         }
 
                     }
@@ -332,15 +342,16 @@ document.addEventListener('alpine:init', () =>{
                     destination: 'Midrand',
                     limit: 10,
                     queue: 0,
+                    total: 0,
                     taxifare: 25,
                     trips: 0,
                     taxis: 5,
                     totalFare() {
                         return Number(this.queue) * Number(this.taxifare)
                     },
-                    grandTotal(){
-                        return Number(this.queue) * Number(this.taxifare)
-                    },
+                    // grandTotal(){
+                    //     return Number(this.queue) * Number(this.taxifare)
+                    // },
                     addToQueue() {
                         this.queue++
                         if (this.queue >= this.limit) {
@@ -362,8 +373,7 @@ document.addEventListener('alpine:init', () =>{
                             this.trips++
                             this.taxis--
                             this.queue -= this.limit
-                            // this.totalFare()
-                            // console.log(this.totalFare())
+                            this.total = (this.limit * this.taxifare) * this.trips
                             
                         }
 
@@ -373,15 +383,16 @@ document.addEventListener('alpine:init', () =>{
                     destination: 'Roodeport',
                     limit: 10,
                     queue: 0,
+                    total: 0,
                     taxifare: 18,
                     trips: 0,
                     taxis: 5,
                     totalFare() {
                         return Number(this.queue) * Number(this.taxifare)
                     },
-                    grandTotal(){
-                        return Number(this.queue) * Number(this.taxifare)
-                    },
+                    // grandTotal(){
+                    //     return Number(this.queue) * Number(this.taxifare)
+                    // },
                     addToQueue() {
                         this.queue++
                         if (this.queue >= this.limit) {
@@ -399,10 +410,13 @@ document.addEventListener('alpine:init', () =>{
 
                         if (this.queue < this.limit ) {
                             alert('Add More Passengers')
+                            
                         } else {
                             this.trips++
                             this.taxis--
-                            this.queue -= this.limit
+                            this.queue -=  this.limit
+                            this.total = (this.limit * this.taxifare) * this.trips
+                            
                         }
 
                     }

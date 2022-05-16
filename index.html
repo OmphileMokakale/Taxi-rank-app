@@ -45,7 +45,7 @@
                 <th>Taxi Fare</th>
                 <th>Total Fare</th>
                 <th>Available Taxis</th>
-                <th>Taxi Grand Totall</th>
+                <th>Total</th>
                 <th>Taxi Actions</th>
               </tr>
             </thead>
@@ -63,7 +63,7 @@
                     <td x-text="'R' + rank.taxifare"></td>
                     <td x-text="'R' + rank.totalFare()"></td>
                     <td x-text="rank.taxis"></td>
-                    <td x-text="'R' + rank.grandTotal()"></td>
+                    <td x-text="'R' + rank.total"></td>
                     <td>
                         <button @click="rank.leave()">Leave</button>
                     </td>
