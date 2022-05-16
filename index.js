@@ -169,6 +169,244 @@ document.addEventListener('alpine:init', () =>{
 
                     }
                 },
+                {
+                    destination: 'Midrand',
+                    limit: 10,
+                    queue: 0,
+                    taxifare: 25,
+                    trips: 0,
+                    taxis: 5,
+                    totalFare() {
+                        return Number(this.queue) * Number(this.taxifare)
+                    },
+                    grandTotal(){
+                        return Number(this.queue) * Number(this.taxifare)
+                    },
+                    addToQueue() {
+                        this.queue++
+                        if (this.queue >= this.limit) {
+                            alert('Taxi is Full and Ready to Leave')
+                        }
+                    },
+                    leaveQueue() {
+                        if (this.queue >= 1) {
+                            this.queue--
+                        } else {
+                            alert('Invalid-Action')
+                        }
+                    },
+                    leave() {
+
+                        if (this.queue < this.limit ) {
+                            alert('Add More Passengers')
+                        } else {
+                            this.trips++
+                            this.taxis--
+                            this.queue -= this.limit
+                            // this.totalFare()
+                            // console.log(this.totalFare())
+                            
+                        }
+
+                    }
+                },
+                {
+                    destination: 'Soweto',
+                    limit: 10,
+                    queue: 0,
+                    taxifare: 20,
+                    trips: 0,
+                    taxis: 5,
+                    totalFare() {
+                        return Number(this.queue) * Number(this.taxifare)
+                    },
+                    grandTotal(){
+                        return Number(this.queue) * Number(this.taxifare)
+                    },
+                    addToQueue() {
+                        this.queue++
+                        if (this.queue >= this.limit) {
+                            alert('Taxi is Full and Ready to Leave')
+                        }
+                    },
+                    leaveQueue() {
+                        if (this.queue >= 1) {
+                            this.queue--
+                        } else {
+                            alert('Invalid-Action')
+                        }
+                    },
+                    leave() {
+
+                        if (this.queue < this.limit ) {
+                            alert('Add More Passengers')
+                        } else {
+                            this.trips++
+                            this.taxis--
+                            this.queue -= this.limit
+                        }
+
+                    }
+                },
+                {
+                    destination: 'Midrand',
+                    limit: 10,
+                    queue: 0,
+                    taxifare: 25,
+                    trips: 0,
+                    taxis: 5,
+                    totalFare() {
+                        return Number(this.queue) * Number(this.taxifare)
+                    },
+                    grandTotal(){
+                        return Number(this.queue) * Number(this.taxifare)
+                    },
+                    addToQueue() {
+                        this.queue++
+                        if (this.queue >= this.limit) {
+                            alert('Taxi is Full and Ready to Leave')
+                        }
+                    },
+                    leaveQueue() {
+                        if (this.queue >= 1) {
+                            this.queue--
+                        } else {
+                            alert('Invalid-Action')
+                        }
+                    },
+                    leave() {
+
+                        if (this.queue < this.limit ) {
+                            alert('Add More Passengers')
+                        } else {
+                            this.trips++
+                            this.taxis--
+                            this.queue -= this.limit
+                            // this.totalFare()
+                            // console.log(this.totalFare())
+                            
+                        }
+
+                    }
+                },
+                {
+                    destination: 'EastRand',
+                    limit: 10,
+                    queue: 0,
+                    taxifare: 27,
+                    trips: 0,
+                    taxis: 5,
+                    totalFare() {
+                        return Number(this.queue) * Number(this.taxifare)
+                    },
+                    grandTotal(){
+                        return Number(this.queue) * Number(this.taxifare)
+                    },
+                    addToQueue() {
+                        this.queue++
+                        if (this.queue >= this.limit) {
+                            alert('Taxi is Full and Ready to Leave')
+                        }
+                    },
+                    leaveQueue() {
+                        if (this.queue >= 1) {
+                            this.queue--
+                        } else {
+                            alert('Invalid-Action')
+                        }
+                    },
+                    leave() {
+
+                        if (this.queue < this.limit ) {
+                            alert('Add More Passengers')
+                        } else {
+                            this.trips++
+                            this.taxis--
+                            this.queue -= this.limit
+                        }
+
+                    }
+                },
+
+                {
+                    destination: 'Midrand',
+                    limit: 10,
+                    queue: 0,
+                    taxifare: 25,
+                    trips: 0,
+                    taxis: 5,
+                    totalFare() {
+                        return Number(this.queue) * Number(this.taxifare)
+                    },
+                    grandTotal(){
+                        return Number(this.queue) * Number(this.taxifare)
+                    },
+                    addToQueue() {
+                        this.queue++
+                        if (this.queue >= this.limit) {
+                            alert('Taxi is Full and Ready to Leave')
+                        }
+                    },
+                    leaveQueue() {
+                        if (this.queue >= 1) {
+                            this.queue--
+                        } else {
+                            alert('Invalid-Action')
+                        }
+                    },
+                    leave() {
+
+                        if (this.queue < this.limit ) {
+                            alert('Add More Passengers')
+                        } else {
+                            this.trips++
+                            this.taxis--
+                            this.queue -= this.limit
+                            // this.totalFare()
+                            // console.log(this.totalFare())
+                            
+                        }
+
+                    }
+                },
+                {
+                    destination: 'Roodeport',
+                    limit: 10,
+                    queue: 0,
+                    taxifare: 18,
+                    trips: 0,
+                    taxis: 5,
+                    totalFare() {
+                        return Number(this.queue) * Number(this.taxifare)
+                    },
+                    grandTotal(){
+                        return Number(this.queue) * Number(this.taxifare)
+                    },
+                    addToQueue() {
+                        this.queue++
+                        if (this.queue >= this.limit) {
+                            alert('Taxi is Full and Ready to Leave')
+                        }
+                    },
+                    leaveQueue() {
+                        if (this.queue >= 1) {
+                            this.queue--
+                        } else {
+                            alert('Invalid-Action')
+                        }
+                    },
+                    leave() {
+
+                        if (this.queue < this.limit ) {
+                            alert('Add More Passengers')
+                        } else {
+                            this.trips++
+                            this.taxis--
+                            this.queue -= this.limit
+                        }
+
+                    }
+                },
             ]
         }
     })
