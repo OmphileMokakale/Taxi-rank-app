@@ -4,13 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Alpine Plugins -->
+    <script defer src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
+ 
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <title>Taxi Rank App</title>
     <link rel="stylesheet" href="style.css">
     <script src="index.js"></script>
 </head>
 <body>
+
+  
     <section>
+        <!-- <h1 class="fa-solid fa-van-shuttle">hhhhhhh</h1> -->
         <h1>Taxi Rank App</h1>
         <div class="tbl-header" x-data="rank">            
           <table>
@@ -47,17 +54,22 @@
                     </td>
                 </tr>
             </template>
+
+            
+               
+
             <template x-for="(field, index) in fields" :key="index">
                 <tr>
                     <td x-text="mainRank"></td>
-                    <td x-text="field.destination"></td>
-                    <!-- <td><input x-model="field.txt1" type="text" name="txt1[]" class="form-control"></td> -->
+                    <!-- <td x-text="field.destination"></td> -->
+                    <td>  <div x-data="{greeting: $persist('hello world')}">
+                        <input type="text" x-model:value="greeting" />
+                      </div></td>
                  <td> <!--  Passenger action starts) -->
-                    <button class="Mdesign S" @click="rank.addToQueue()">+</button> 
+                    <button class="Mdesign S" @click="addToQueue()">+</button> 
                     <span x-text="queue"></span> 
-                    <button class="Mdesign S" @click="rank.leaveQueue()">-</button>
+                    <button class="Mdesign S" @click="leaveQueue()">-</button>
                 </td><!--  Passenger action ends) -->
-                 <!-- <td><input x-model="field.txt2" type="text" name="txt2[]" class="form-control"></td> -->
                  <td x-text="trips"></td>
                  <td x-text="'R' + taxifare"></td>
                  <td x-text="'R' + totalFare()"></td>
@@ -71,7 +83,7 @@
               </template>
             <tfoot>
                 <tr>
-                  <td colspan="4" class="text-right"><button type="button" class="Mdesign W" @click="addNewField()">+ Add Destination</button></td>
+                  <td colspan="4" class="text-right"><button type="button" class="Mdesign AW" @click="addNewField()">+ Add Destination</button></td>
                </tr>
              </tfoot>
           </table>

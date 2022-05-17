@@ -1,16 +1,16 @@
 document.addEventListener('alpine:init', () =>{
 
-    Alpine.data('rank',()=>{
+    Alpine.data('rank',function(){
         return{
+            open: this.$persist(false),
             init(){
             },
 
       fields: [],
       addNewField() {
           this.fields.push({
-              txt1: '',
-              destination: '',
-              txt2: ''
+            //   txt1: '',
+            //   txt2: ''
            });
         },
         removeField(index) {
@@ -18,12 +18,26 @@ document.addEventListener('alpine:init', () =>{
           },
             mainRank: 'Johannesburg CBD',
             queue: 0,
+            limit: 10,
             total: 0,
-            taxifare: '',
+            taxifare: 20,
             trips: 0,
             taxis: 5,
             totalFare() {
                 return Number(this.queue) * Number(this.taxifare)
+            },
+            addToQueue() {
+                this.queue++
+                if (this.queue >= this.limit) {
+                    alert('Taxi is Full and Ready to Leave')
+                }
+            },
+            leaveQueue() {
+                if (this.queue >= 1) {
+                    this.queue--
+                } else {
+                    alert('Invalid-Action')
+                }
             },
             leave() {
 
@@ -50,9 +64,6 @@ document.addEventListener('alpine:init', () =>{
                     totalFare() {
                         return Number(this.queue) * Number(this.taxifare)
                     },
-                    // grandTotal(){
-                    //     return Number(this.queue) * Number(this.taxifare)
-                    // },
                     addToQueue() {
                         this.queue++
                         if (this.queue >= this.limit) {
@@ -91,9 +102,6 @@ document.addEventListener('alpine:init', () =>{
                     totalFare() {
                         return Number(this.queue) * Number(this.taxifare)
                     },
-                    // grandTotal(){
-                    //     return Number(this.queue) * Number(this.taxifare)
-                    // },
                     addToQueue() {
                         this.queue++
                         if (this.queue >= this.limit) {
@@ -131,9 +139,6 @@ document.addEventListener('alpine:init', () =>{
                     totalFare() {
                         return Number(this.queue) * Number(this.taxifare)
                     },
-                    // grandTotal(){
-                    //     return Number(this.queue) * Number(this.taxifare)
-                    // },
                     addToQueue() {
                         this.queue++
                         if (this.queue >= this.limit) {
@@ -171,9 +176,6 @@ document.addEventListener('alpine:init', () =>{
                     totalFare() {
                         return Number(this.queue) * Number(this.taxifare)
                     },
-                    // grandTotal(){
-                    //     return Number(this.queue) * Number(this.taxifare)
-                    // },
                     addToQueue() {
                         this.queue++
                         if (this.queue >= this.limit) {
@@ -190,7 +192,6 @@ document.addEventListener('alpine:init', () =>{
                     leave() {
 
                         if (this.queue < this.limit ) {
-                            Number(this.taxifare) * (10)
                             alert('Add More Passengers')
                             console.log(this.totalFare())
                         } else {
@@ -213,9 +214,6 @@ document.addEventListener('alpine:init', () =>{
                     totalFare() {
                         return Number(this.queue) * Number(this.taxifare)
                     },
-                    // grandTotal(){
-                    //     return Number(this.queue) * Number(this.taxifare)
-                    // },
                     addToQueue() {
                         this.queue++
                         if (this.queue >= this.limit) {
@@ -253,9 +251,6 @@ document.addEventListener('alpine:init', () =>{
                     totalFare() {
                         return Number(this.queue) * Number(this.taxifare)
                     },
-                    // grandTotal(){
-                    //     return Number(this.queue) * Number(this.taxifare)
-                    // },
                     addToQueue() {
                         this.queue++
                         if (this.queue >= this.limit) {
@@ -285,11 +280,9 @@ document.addEventListener('alpine:init', () =>{
                     }
                 },
             ]
+
         }
+
+        
     })
 })
-
-// $(window).on("load resize ", function() {
-//     var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
-//     $('.tbl-header').css({'padding-right':scrollWidth});
-//   }).resize();
