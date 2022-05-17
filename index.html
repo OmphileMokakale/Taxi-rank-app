@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Bootstrap CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     
     <!-- Alpine Plugins -->
     <script defer src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
@@ -20,24 +22,24 @@
         <!-- <h1 class="fa-solid fa-van-shuttle">hhhhhhh</h1> -->
         <h1>Taxi Rank App</h1>
         <div class="tbl-header" x-data="rank">            
-          <table>
+          <table class="table">
             <thead>
               <tr>
-                <th>Departure</th>
-                <th>Destination</th>
-                <th>Passenger Actions</th>
-                <th>Trips</th>
-                <th>Taxi Fare</th>
-                <th>Total Fare</th>
-                <th>Available Taxis</th>
-                <th>Total</th>
-                <th>Taxi Actions</th>
+                <th scope="col">From</th>
+                <th scope="col">To</th>
+                <th scope="col">Passenger Actions</th>
+                <th scope="col">Trips</th>
+                <th scope="col">Taxi Fare</th>
+                <th scope="col">Total Fare</th>
+                <th scope="col">Available Taxis</th>
+                <th scope="col">Total</th>
+                <th scope="col">Taxi Actions</th>
               </tr>
             </thead>
 
             <template x-for="rank in ranks">
                 <tr>
-                    <td x-text="mainRank"></td>   <!--  displays main rank on the table using x-text (Under Depature th) -->
+                    <td scope="row" x-text="mainRank"></td>   <!--  displays main rank on the table using x-text (Under Depature th) -->
                     <td x-text="rank.destination"></td> <!--  displays depature on the table using x-text (Under Destination th) -->
                     <td> <!--  Passenger action starts) -->
                         <button class="Mdesign S" @click="rank.addToQueue()">+</button> 
@@ -60,10 +62,10 @@
 
             <template x-for="(field, index) in fields" :key="index">
                 <tr>
-                    <td x-text="mainRank"></td>
+                    <td scope="row" x-text="mainRank"></td>
                     <!-- <td x-text="field.destination"></td> -->
-                    <td>  <div x-data="{greeting: $persist('hello world')}">
-                        <input type="text" x-model:value="greeting" />
+                    <td>  <div x-data="{Destination: $persist('hello world')}">
+                        <input type="text" x-model:value="Destination" />
                       </div></td>
                  <td> <!--  Passenger action starts) -->
                     <button class="Mdesign S" @click="addToQueue()">+</button> 

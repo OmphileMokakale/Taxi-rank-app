@@ -16,7 +16,7 @@ document.addEventListener('alpine:init', () =>{
         removeField(index) {
             this.fields.splice(index, 1);
           },
-            mainRank: 'Johannesburg CBD',
+            mainRank: 'Joburg CBD',
             queue: 0,
             limit: 10,
             total: 0,
