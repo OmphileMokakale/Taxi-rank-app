@@ -21,7 +21,13 @@
     <section>
         <!-- <h1 class="fa-solid fa-van-shuttle">hhhhhhh</h1> -->
         <h1>Taxi Rank App</h1>
-        <div class="tbl-header" x-data="rank">            
+
+    <div class="tbl-header" x-data="rank"> 
+
+
+      
+       <h5>Total Fare:</h5><h5 x-text="'R' + grandTotal()"> </h5>
+
           <table class="table">
             <thead>
               <tr>
@@ -42,17 +48,17 @@
                     <td scope="row" x-text="mainRank"></td>   <!--  displays main rank on the table using x-text (Under Depature th) -->
                     <td x-text="rank.destination"></td> <!--  displays depature on the table using x-text (Under Destination th) -->
                     <td> <!--  Passenger action starts) -->
-                        <button class="Mdesign S" @click="rank.addToQueue()">+</button> 
+                        <button class="Mdesign S" @click="addToQueue(rank)">+</button> 
                         <span x-text="rank.queue"></span> 
-                        <button class="Mdesign S" @click="rank.leaveQueue()">-</button>
+                        <button class="Mdesign S" @click="leaveQueue(rank)">-</button>
                     </td><!--  Passenger action ends) -->
                     <td x-text="rank.trips"></td>
                     <td x-text="'R' + rank.taxifare"></td>
-                    <td x-text="'R' + rank.totalFare()"></td>
+                    <td x-text="'R' + totalFare(rank)"></td>
                     <td x-text="rank.taxis"></td>
                     <td x-text="'R' + rank.total"></td>
                     <td>
-                        <button class="Mdesign AW" @click="rank.leave()">Leave</button>
+                        <button class="Mdesign AW" @click="leave(rank)">Leave</button>
                     </td>
                 </tr>
             </template>
@@ -73,12 +79,13 @@
                     <button class="Mdesign S" @click="leaveQueue()">-</button>
                 </td><!--  Passenger action ends) -->
                  <td x-text="trips"></td>
-                 <td x-text="'R' + taxifare"></td>
-                 <td x-text="'R' + totalFare()"></td>
+                 <td x-text="'R' + rank.taxifare"></td>
+                 <td x-text="'R' + totalFare(rank)"></td>
                  <td x-text="taxis"></td>
                     <td x-text="'R' + total"></td>
                     <td>
                         <button class="Mdesign AW" @click="leave()">Leave</button>
+                        
                     </td>
                   <td><button type="button" class="Mdesign Y" @click="removeField(index)">&times;</button></td>
                </tr>

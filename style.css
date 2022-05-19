@@ -8,6 +8,15 @@ h1{
     margin-bottom: 15px;
     font-family: Harrington;
   }
+  h5{
+    font-size: 20px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 15px;
+    font-family: Harrington;
+  }
   table{
     width:100%;
     table-layout: fixed;

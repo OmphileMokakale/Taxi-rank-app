@@ -1,58 +1,21 @@
-document.addEventListener('alpine:init', () =>{
+document.addEventListener('alpine:init', () => {
 
-    Alpine.data('rank',function(){
-        return{
+    Alpine.data('rank', function () {
+        return {
             open: this.$persist(false),
-            init(){
+            init() {
             },
-
-      fields: [],
-      addNewField() {
-          this.fields.push({
-            //   txt1: '',
-            //   txt2: ''
-           });
-        },
-        removeField(index) {
-            this.fields.splice(index, 1);
-          },
             mainRank: 'Joburg CBD',
-            queue: 0,
-            limit: 10,
-            total: 0,
-            taxifare: 20,
-            trips: 0,
-            taxis: 5,
-            totalFare() {
-                return Number(this.queue) * Number(this.taxifare)
-            },
-            addToQueue() {
-                this.queue++
-                if (this.queue >= this.limit) {
-                    alert('Taxi is Full and Ready to Leave')
-                }
-            },
-            leaveQueue() {
-                if (this.queue >= 1) {
-                    this.queue--
-                } else {
-                    alert('Invalid-Action')
-                }
-            },
-            leave() {
-
-                if (this.queue < this.limit ) {
-                    alert('Add More Passengers')
-                } else {
-                    this.trips++
-                    this.taxis--
-                    this.queue -= this.limit
-                    this.total = (this.limit * this.taxifare) * this.trips
-                    
-                }
-
-            },
             ranks: [
+                {
+                    destination: 'Brixton',
+                    queue: 0,
+                    limit: 10,
+                    total: 0,
+                    taxifare: 20,
+                    trips: 0,
+                    taxis: 5,
+                },
                 {
                     destination: 'Midrand',
                     limit: 10,
@@ -61,37 +24,10 @@ document.addEventListener('alpine:init', () =>{
                     taxifare: 25,
                     trips: 0,
                     taxis: 5,
-                    totalFare() {
-                        return Number(this.queue) * Number(this.taxifare)
-                    },
-                    addToQueue() {
-                        this.queue++
-                        if (this.queue >= this.limit) {
-                            alert('Taxi is Full and Ready to Leave')
-                        }
-                    },
-                    leaveQueue() {
-                        if (this.queue >= 1) {
-                            this.queue--
-                        } else {
-                            alert('Invalid-Action')
-                        }
-                    },
-                    leave() {
 
-                        if (this.queue < this.limit ) {
-                            alert('Add More Passengers')
-                        } else {
-                            this.trips++
-                            this.taxis--
-                            this.queue -= this.limit
-                            this.total = (this.limit * this.taxifare) * this.trips
-                            
-                        }
-
-                    }
                 },
                 {
+                    mainRank: 'Joburg CBD',
                     destination: 'Sandton',
                     limit: 10,
                     queue: 0,
@@ -99,190 +35,66 @@ document.addEventListener('alpine:init', () =>{
                     taxifare: 20,
                     trips: 0,
                     taxis: 5,
-                    totalFare() {
-                        return Number(this.queue) * Number(this.taxifare)
-                    },
-                    addToQueue() {
-                        this.queue++
-                        if (this.queue >= this.limit) {
-                            alert('Taxi is Full and Ready to Leave')
-                        }
-                    },
-                    leaveQueue() {
-                        if (this.queue >= 1) {
-                            this.queue--
-                        } else {
-                            alert('Invalid-Action')
-                        }
-                    },
-                    leave() {
+                }
+            ],
+            totalFare(destination) {
+                return Number(destination.queue) * Number(destination.taxifare)
+            },
 
-                        if (this.queue < this.limit ) {
-                            alert('Add More Passengers')
-                        } else {
-                            this.trips++
-                            this.taxis--
-                            this.queue -= this.limit
-                            this.total = (this.limit * this.taxifare) * this.trips
-                        }
+            addToQueue(destination) {
+                console.log(destination.queue);
+                destination.queue++
+                if (destination.queue >= destination.limit) {
+                    alert('Taxi is Full and Ready to Leave')
+                }
+            },
+            leaveQueue(destination) {
+                if (destination.queue >= 1) {
+                    destination.queue--
+                } else {
+                    alert('Invalid-Action')
+                }
+            },
+            leave(destination) {
 
-                    }
-                },
-                {
-                    destination: 'Rosebank',
-                    limit: 10,
-                    queue: 0,
-                    total: 0,
-                    taxifare: 18,
-                    trips: 0,
-                    taxis: 5,
-                    totalFare() {
-                        return Number(this.queue) * Number(this.taxifare)
-                    },
-                    addToQueue() {
-                        this.queue++
-                        if (this.queue >= this.limit) {
-                            alert('Taxi is Full and Ready to Leave')
-                        }
-                    },
-                    leaveQueue() {
-                        if (this.queue >= 1) {
-                            this.queue--
-                        } else {
-                            alert('Invalid-Action')
-                        }
-                    },
-                    leave() {
+                if (destination.queue < destination.limit) {
+                    alert('Add More Passengers')
+                } else {
+                    destination.trips++
+                    destination.taxis--
+                     destination.queue = 0,
 
-                        if (this.queue < this.limit ) {
-                            alert('Add More Passengers')
-                        } else {
-                            this.trips++
-                            this.taxis--
-                            this.queue -= this.limit
-                            this.total = (this.limit * this.taxifare) * this.trips
-                        }
+                    destination.total = (destination.limit * destination.taxifare) * destination.trips
 
-                    }
-                },
-                {
-                    destination: 'Pretoria',
-                    limit: 10,
-                    queue: 0,
-                    total: 0,
-                    taxifare: 45,
-                    trips: 0,
-                    taxis: 5,
-                    totalFare() {
-                        return Number(this.queue) * Number(this.taxifare)
-                    },
-                    addToQueue() {
-                        this.queue++
-                        if (this.queue >= this.limit) {
-                            alert('Taxi is Full and Ready to Leave')
-                        }
-                    },
-                    leaveQueue() {
-                        if (this.queue >= 1) {
-                            this.queue--
-                        } else {
-                            alert('Invalid-Action')
-                        }
-                    },
-                    leave() {
+                }
 
-                        if (this.queue < this.limit ) {
-                            alert('Add More Passengers')
-                            console.log(this.totalFare())
-                        } else {
-                            this.trips++
-                            this.taxis--
-                            this.queue -= this.limit
-                            this.total = (this.limit * this.taxifare) * this.trips
-                        }
+            },
+            grandTotal() {
+                let total = 0
 
-                    }
-                },
-                {
-                    destination: 'Soweto',
-                    limit: 10,
-                    queue: 0,
-                    total: 0,
-                    taxifare: 20,
-                    trips: 0,
-                    taxis: 5,
-                    totalFare() {
-                        return Number(this.queue) * Number(this.taxifare)
-                    },
-                    addToQueue() {
-                        this.queue++
-                        if (this.queue >= this.limit) {
-                            alert('Taxi is Full and Ready to Leave')
-                        }
-                    },
-                    leaveQueue() {
-                        if (this.queue >= 1) {
-                            this.queue--
-                        } else {
-                            alert('Invalid-Action')
-                        }
-                    },
-                    leave() {
+                for (let index = 0; index < this.ranks.length; index++) {
+                    const element = this.ranks[index];
+                    total += this.totalFare(element)
+                }
+                return total
+            },
+            fields: [
 
-                        if (this.queue < this.limit ) {
-                            alert('Add More Passengers')
-                        } else {
-                            this.trips++
-                            this.taxis--
-                            this.queue -= this.limit
-                            this.total = (this.limit * this.taxifare) * this.trips
-                        }
+            ],
+            addNewField() {
+                this.fields.push({
+                    //   txt1: '',
+                    //   txt2: ''
+                });
+            },
+            removeField(index) {
+                this.fields.splice(index, 1);
+            },
 
-                    }
-                },
-                {
-                    destination: 'Roodeport',
-                    limit: 10,
-                    queue: 0,
-                    total: 0,
-                    taxifare: 18,
-                    trips: 0,
-                    taxis: 5,
-                    totalFare() {
-                        return Number(this.queue) * Number(this.taxifare)
-                    },
-                    addToQueue() {
-                        this.queue++
-                        if (this.queue >= this.limit) {
-                            alert('Taxi is Full and Ready to Leave')
-                        }
-                    },
-                    leaveQueue() {
-                        if (this.queue >= 1) {
-                            this.queue--
-                        } else {
-                            alert('Invalid-Action')
-                        }
-                    },
-                    leave() {
-
-                        if (this.queue < this.limit ) {
-                            alert('Add More Passengers')
-                            
-                        } else {
-                            this.trips++
-                            this.taxis--
-                            this.queue -=  this.limit
-                            this.total = (this.limit * this.taxifare) * this.trips
-                            
-                        }
-
-                    }
-                },
-            ]
 
         }
 
-        
+
+
     })
 })
