@@ -23,10 +23,26 @@
         <h1>Taxi Rank App</h1>
 
     <div class="tbl-header" x-data="rank"> 
+    <h5>Total Fare:</h5><h5 x-text="'R' + grandTotal()"> </h5>
 
 
-      
-       <h5>Total Fare:</h5><h5 x-text="'R' + grandTotal()"> </h5>
+     <!-- add destination -->
+       
+        <button class="Mdesign AW" @click="show = !show">+ Add Destination</button>
+        <div x-show="show">
+        <form x-on:submit.prevent>
+        <input placeholder="Destination" type="text" id="input" x-model="input1" />
+        <input  placeholder= "Taxi Fare" type="number" name="someid" x-model="input2" />
+        <button  class="Mdesign AW" @click="show = !show, ranks.push({
+        destination: input1,
+        queue: 0,
+        limit: 10,
+        total: 0,
+        taxifare: input2,
+        trips: 0,
+        taxis: 5,})">Add</button>
+      </form>
+    </div>
 
           <table class="table">
             <thead>
@@ -62,39 +78,6 @@
                     </td>
                 </tr>
             </template>
-
-            
-               
-
-            <template x-for="(field, index) in fields" :key="index">
-                <tr>
-                    <td scope="row" x-text="mainRank"></td>
-                    <!-- <td x-text="field.destination"></td> -->
-                    <td>  <div x-data="{Destination: $persist('hello world')}">
-                        <input type="text" x-model:value="Destination" />
-                      </div></td>
-                 <td> <!--  Passenger action starts) -->
-                    <button class="Mdesign S" @click="addToQueue()">+</button> 
-                    <span x-text="queue"></span> 
-                    <button class="Mdesign S" @click="leaveQueue()">-</button>
-                </td><!--  Passenger action ends) -->
-                 <td x-text="trips"></td>
-                 <td x-text="'R' + rank.taxifare"></td>
-                 <td x-text="'R' + totalFare(rank)"></td>
-                 <td x-text="taxis"></td>
-                    <td x-text="'R' + total"></td>
-                    <td>
-                        <button class="Mdesign AW" @click="leave()">Leave</button>
-                        
-                    </td>
-                  <td><button type="button" class="Mdesign Y" @click="removeField(index)">&times;</button></td>
-               </tr>
-              </template>
-            <tfoot>
-                <tr>
-                  <td colspan="4" class="text-right"><button type="button" class="Mdesign AW" @click="addNewField()">+ Add Destination</button></td>
-               </tr>
-             </tfoot>
           </table>
         </div>
        

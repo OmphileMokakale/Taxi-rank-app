@@ -6,6 +6,9 @@ document.addEventListener('alpine:init', () => {
             init() {
             },
             mainRank: 'Joburg CBD',
+            show: false,
+            input1: "",
+            input2: "",
             ranks: [
                 {
                     destination: 'Brixton',
@@ -37,6 +40,7 @@ document.addEventListener('alpine:init', () => {
                     taxis: 5,
                 }
             ],
+        
             totalFare(destination) {
                 return Number(destination.queue) * Number(destination.taxifare)
             },
@@ -77,24 +81,9 @@ document.addEventListener('alpine:init', () => {
                     total += this.totalFare(element)
                 }
                 return total
-            },
-            fields: [
-
-            ],
-            addNewField() {
-                this.fields.push({
-                    //   txt1: '',
-                    //   txt2: ''
-                });
-            },
-            removeField(index) {
-                this.fields.splice(index, 1);
-            },
-
+            }
 
         }
-
-
 
     })
 })
